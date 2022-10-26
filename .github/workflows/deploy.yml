@@ -6,15 +6,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/rjar6545
+      - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          heroku_api_key: ${{011b2cce-5ee2-4ff9-93f2-f7bc8c712f9f}}
-          heroku_app_name: ${{rajlecg2}}
-          heroku_email: ${{naveenreddy694@hotmail.com}}
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
           usedocker: true
           docker_heroku_process_type: web
           stack: "container"
           region: "us"
         env:
-          HD_CONFIG_FILE_URL: ${{https://gist.githubusercontent.com/rjar6545/f779cdc456809e014e216e1438245a3c/raw/saveRajHere.envL}}
+          HD_CONFIG_FILE_URL: ${{secrets.CONFIG_FILE_URL}}
